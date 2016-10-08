@@ -46,7 +46,7 @@ public class EnderecoTest {
      */
     @Test
     public void testGetIdEndereco() {
-        System.out.println("getIdEndereco <<<<<");
+        System.out.println("getIdEndereco");
         Endereco instance = new Endereco();
         Long expResult = null;
         Long result = instance.getIdEndereco();
@@ -83,6 +83,7 @@ public class EnderecoTest {
         System.out.println("setRua");
         String rua = "";
         instance.setRua(rua);
+        assertEquals(rua, instance.getRua());
     }
 
     /**
