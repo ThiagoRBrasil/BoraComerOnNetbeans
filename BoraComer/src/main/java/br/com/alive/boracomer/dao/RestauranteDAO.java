@@ -1,4 +1,4 @@
-package br.com.alive.boracomer.dao;
+ package br.com.alive.boracomer.dao;
 
 import br.com.alive.boracomer.HibernateUtil;
 import org.hibernate.Session;
