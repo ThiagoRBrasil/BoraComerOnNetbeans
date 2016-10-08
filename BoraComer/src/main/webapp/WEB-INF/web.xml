@@ -21,11 +21,8 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-<<<<<<< HEAD
     <context-param>  
           <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>  
           <param-value>true</param-value>  
    </context-param> 
-=======
->>>>>>> 42ba3e8d37fc9339936e0fc9fe8eb0a65b0c6e17
 </web-app>

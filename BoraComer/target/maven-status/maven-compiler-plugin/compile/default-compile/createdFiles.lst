@@ -1,8 +1,10 @@
 br\com\alive\boracomer\entity\Restaurante.class
 br\com\alive\boracomer\HibernateUtil.class
 br\com\alive\boracomer\entity\Usuario.class
+br\com\alive\boracomer\controller\controller.class
 br\com\alive\boracomer\entity\Evento.class
 br\com\alive\boracomer\entity\Endereco.class
 br\com\alive\boracomer\dao\EventoDAO.class
 br\com\alive\boracomer\dao\UsuarioDAO.class
 br\com\alive\boracomer\dao\RestauranteDAO.class
+br\com\alive\boracomer\controller\controllerLogin.class

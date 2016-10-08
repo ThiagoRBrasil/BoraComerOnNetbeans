@@ -10,18 +10,18 @@
     <h:body>
         <h:link outcome="welcomePrimefaces" value="Página de boas-vindas do Primefaces" />
         <br />
-        <h:form>
+        <h:form id="formLogin">
             <h:panelGrid columns="2" cellpadding="5">
 
-                <h:outputText value="Login: " />
-                <p:inputText />
+                <p:outputLabel value="Login: " for="inputLogin"/>
+                <p:inputText id="inputLogin" value="#{controllerLogin.user}"/>
 
-                <h:outputText value="Senha: " />
-                <p:password id="nonFeedback" value="#{passwordView.password1}" />
+                <p:outputLabel value="Senha: " for="inputPassword"/>
+                <p:password id="inputPassword" value="#{controllerLogin.pass}" />
 
             </h:panelGrid>
 
-            <p:commandButton value="Entrar" id="entrar" actionListener="#{buttonView.buttonAction}" styleClass="ui-priority-primary" />
+            <p:commandButton value="Entrar" action="#{controllerLogin.loginUsuario()}" id="btnEntrar" process=":formLogin" styleClass="ui-priority-primary"/>
         </h:form>
     </h:body>
 </html>
