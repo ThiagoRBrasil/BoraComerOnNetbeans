@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class EnderecoTest {
     
+    private Endereco instance = null;
+    
     public EnderecoTest() {
     }
     
@@ -31,10 +33,12 @@ public class EnderecoTest {
     
     @Before
     public void setUp() {
+        instance = new Endereco();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -42,13 +46,11 @@ public class EnderecoTest {
      */
     @Test
     public void testGetIdEndereco() {
-        System.out.println("getIdEndereco");
+        System.out.println("getIdEndereco <<<<<");
         Endereco instance = new Endereco();
         Long expResult = null;
         Long result = instance.getIdEndereco();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,10 +60,8 @@ public class EnderecoTest {
     public void testSetIdEndereco() {
         System.out.println("setIdEndereco");
         Long idEndereco = null;
-        Endereco instance = new Endereco();
         instance.setIdEndereco(idEndereco);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(idEndereco,instance.getIdEndereco() );
     }
 
     /**
@@ -70,12 +70,9 @@ public class EnderecoTest {
     @Test
     public void testGetRua() {
         System.out.println("getRua");
-        Endereco instance = new Endereco();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getRua();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,10 +82,7 @@ public class EnderecoTest {
     public void testSetRua() {
         System.out.println("setRua");
         String rua = "";
-        Endereco instance = new Endereco();
         instance.setRua(rua);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,12 +91,9 @@ public class EnderecoTest {
     @Test
     public void testGetNumero() {
         System.out.println("getNumero");
-        Endereco instance = new Endereco();
         Short expResult = null;
         Short result = instance.getNumero();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -112,10 +103,8 @@ public class EnderecoTest {
     public void testSetNumero() {
         System.out.println("setNumero");
         Short numero = null;
-        Endereco instance = new Endereco();
         instance.setNumero(numero);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(null, instance.getNumero());
     }
 
     /**
@@ -124,12 +113,8 @@ public class EnderecoTest {
     @Test
     public void testGetBairro() {
         System.out.println("getBairro");
-        Endereco instance = new Endereco();
-        String expResult = "";
-        String result = instance.getBairro();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String expResult = null;
+        assertEquals(expResult, instance.getBairro());
     }
 
     /**
@@ -139,10 +124,8 @@ public class EnderecoTest {
     public void testSetBairro() {
         System.out.println("setBairro");
         String bairro = "";
-        Endereco instance = new Endereco();
         instance.setBairro(bairro);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(bairro, instance.getBairro());
     }
 
     /**
@@ -151,12 +134,9 @@ public class EnderecoTest {
     @Test
     public void testGetContato() {
         System.out.println("getContato");
-        Endereco instance = new Endereco();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getContato();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -166,10 +146,8 @@ public class EnderecoTest {
     public void testSetContato() {
         System.out.println("setContato");
         String contato = "";
-        Endereco instance = new Endereco();
         instance.setContato(contato);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(contato, instance.getContato());
     }
 
     /**
@@ -178,12 +156,9 @@ public class EnderecoTest {
     @Test
     public void testGetCidade() {
         System.out.println("getCidade");
-        Endereco instance = new Endereco();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getCidade();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -192,11 +167,9 @@ public class EnderecoTest {
     @Test
     public void testSetCidade() {
         System.out.println("setCidade");
-        String cidade = "";
-        Endereco instance = new Endereco();
+        String cidade = null;
         instance.setCidade(cidade);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(cidade, instance.getCidade());
     }
     
 }

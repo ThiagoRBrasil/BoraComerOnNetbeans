@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class RestauranteTest {
     
+    private Restaurante instance = null;
+    
     public RestauranteTest() {
     }
     
@@ -31,10 +33,12 @@ public class RestauranteTest {
     
     @Before
     public void setUp() {
+        instance = new Restaurante();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -43,12 +47,9 @@ public class RestauranteTest {
     @Test
     public void testGetIdRestaurante() {
         System.out.println("getIdRestaurante");
-        Restaurante instance = new Restaurante();
         Long expResult = null;
         Long result = instance.getIdRestaurante();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,10 +59,8 @@ public class RestauranteTest {
     public void testSetIdRestaurante() {
         System.out.println("setIdRestaurante");
         Long idRestaurante = null;
-        Restaurante instance = new Restaurante();
         instance.setIdRestaurante(idRestaurante);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(idRestaurante, instance.getIdRestaurante());
     }
 
     /**
@@ -70,12 +69,9 @@ public class RestauranteTest {
     @Test
     public void testGetNome() {
         System.out.println("getNome");
-        Restaurante instance = new Restaurante();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getNome();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,10 +81,8 @@ public class RestauranteTest {
     public void testSetNome() {
         System.out.println("setNome");
         String nome = "";
-        Restaurante instance = new Restaurante();
         instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(nome, instance.getNome());
     }
 
     /**
@@ -97,12 +91,9 @@ public class RestauranteTest {
     @Test
     public void testGetEndereco() {
         System.out.println("getEndereco");
-        Restaurante instance = new Restaurante();
         Endereco expResult = null;
         Endereco result = instance.getEndereco();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -112,10 +103,8 @@ public class RestauranteTest {
     public void testSetEndereco() {
         System.out.println("setEndereco");
         Endereco endereco = null;
-        Restaurante instance = new Restaurante();
         instance.setEndereco(endereco);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(endereco, instance.getEndereco());
     }
 
     /**
@@ -124,12 +113,9 @@ public class RestauranteTest {
     @Test
     public void testGetTipo() {
         System.out.println("getTipo");
-        Restaurante instance = new Restaurante();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getTipo();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -139,10 +125,8 @@ public class RestauranteTest {
     public void testSetTipo() {
         System.out.println("setTipo");
         String tipo = "";
-        Restaurante instance = new Restaurante();
         instance.setTipo(tipo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(tipo, instance.getTipo());
     }
     
 }
