@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -------------------------------------------------------------------------------
 Test set: br.com.alive.boracomer.entity.RestauranteTest
 -------------------------------------------------------------------------------
@@ -312,3 +313,13 @@ java.lang.AssertionError: The test case is a prototype.
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
+=======
+-------------------------------------------------------------------------------
+Test set: br.com.alive.boracomer.entity.RestauranteTest
+-------------------------------------------------------------------------------
+<<<<<<< HEAD
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+=======
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+>>>>>>> a7d0f0b70ac36290cc9147a00838695601fc15e9
+>>>>>>> b839636b006d2ee762d529cdc748f3a416758e01

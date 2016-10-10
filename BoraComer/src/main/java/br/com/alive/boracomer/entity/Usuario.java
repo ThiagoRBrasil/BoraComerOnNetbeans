@@ -14,6 +14,12 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario-seq")
     private Long idUsuario;
     
+    @Column(name = "nome", nullable = false)
+    private String nome;
+    
+    @Column(name = "password", nullable = false)
+    private String pass;
+    
     @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "friendZone", joinColumns = {@JoinColumn(name = "idUsuario")},
             inverseJoinColumns = {@JoinColumn(name = "idUsuario")})
@@ -37,6 +43,22 @@ public class Usuario implements Serializable {
         this.idUsuario = idUsuario;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+    
     public List<Usuario> getAmigos() {
         return amigos;
     }

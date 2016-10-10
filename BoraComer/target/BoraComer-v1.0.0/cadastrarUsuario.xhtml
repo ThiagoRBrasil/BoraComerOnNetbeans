@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Bora Comer - Cadastro</title>
+    </h:head>
+    <h:body>
+        <h1>Novo Cadastro</h1>
+        <h:form id="formCadastro">
+            <h:panelGrid columns="2" cellpadding="5">
+
+                <p:outputLabel value="Nome: " for="inputCadastrarNome"/>
+                <p:inputText id="inputCadastrarNome" value="#{controllerCadastro.usuario.nome}" />
+
+                <p:outputLabel value="Senha: " for="inputCadastrarPassword"/>
+                <p:password id="inputCadastrarPassword" value="#{controllerCadastro.usuario.pass}" />
+
+                <p:outputLabel value="Idade: " for="inputCadastrarIdade"/>
+                <p:inputText id="inputCadastrarIdade" value="#{controllerCadastro.usuario.idade}" />
+
+                <p:outputLabel value="E-mail: " for="inputCadastrarEmail"/>
+                <p:inputText id="inputCadastrarEmail" value="#{controllerCadastro.usuario.email}" />
+
+            </h:panelGrid>
+
+            <p:commandButton value="Cadastrar" id="btnCadastroCadastrar" action="#{controllerCadastro.cadastrarUsuario}" styleClass="ui-priority-primary" />
+            <p:commandButton value="Cancelar" id="btnCadastroCancelar" action="#{controllerCadastro.cancelarCadastro}" styleClass="ui-priority-primary" />
+        </h:form>
+    </h:body>
+</html>
+
