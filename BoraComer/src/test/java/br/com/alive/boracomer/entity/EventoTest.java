@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class EventoTest {
     
+    private Evento instance = null;
+    
     public EventoTest() {
     }
     
@@ -31,10 +33,12 @@ public class EventoTest {
     
     @Before
     public void setUp() {
+        instance = new Evento();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -43,12 +47,9 @@ public class EventoTest {
     @org.junit.Test
     public void testGetIdEvento() {
         System.out.println("getIdEvento");
-        Evento instance = new Evento();
         Long expResult = null;
         Long result = instance.getIdEvento();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -58,10 +59,8 @@ public class EventoTest {
     public void testSetIdEvento() {
         System.out.println("setIdEvento");
         Long idEvento = null;
-        Evento instance = new Evento();
         instance.setIdEvento(idEvento);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(idEvento, instance.getIdEvento());
     }
 
     /**
@@ -70,12 +69,9 @@ public class EventoTest {
     @org.junit.Test
     public void testGetNome() {
         System.out.println("getNome");
-        Evento instance = new Evento();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getNome();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -85,10 +81,8 @@ public class EventoTest {
     public void testSetNome() {
         System.out.println("setNome");
         String nome = "";
-        Evento instance = new Evento();
         instance.setNome(nome);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(nome, instance.getNome());
     }
 
     /**
@@ -97,12 +91,9 @@ public class EventoTest {
     @org.junit.Test
     public void testGetLocal() {
         System.out.println("getLocal");
-        Evento instance = new Evento();
         Restaurante expResult = null;
         Restaurante result = instance.getLocal();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -112,10 +103,8 @@ public class EventoTest {
     public void testSetLocal() {
         System.out.println("setLocal");
         Restaurante local = null;
-        Evento instance = new Evento();
         instance.setLocal(local);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(local, local);
     }
 
     /**
@@ -124,12 +113,9 @@ public class EventoTest {
     @org.junit.Test
     public void testGetHora() {
         System.out.println("getHora");
-        Evento instance = new Evento();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getHora();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -139,10 +125,8 @@ public class EventoTest {
     public void testSetHora() {
         System.out.println("setHora");
         String hora = "";
-        Evento instance = new Evento();
         instance.setHora(hora);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(hora, hora);
     }
 
     /**
@@ -151,12 +135,9 @@ public class EventoTest {
     @org.junit.Test
     public void testGetDescricao() {
         System.out.println("getDescricao");
-        Evento instance = new Evento();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getDescricao();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -166,10 +147,8 @@ public class EventoTest {
     public void testSetDescricao() {
         System.out.println("setDescricao");
         String descricao = "";
-        Evento instance = new Evento();
         instance.setDescricao(descricao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(descricao, instance.getDescricao());
     }
     
 }
