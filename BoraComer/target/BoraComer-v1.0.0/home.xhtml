@@ -25,17 +25,8 @@
                     Footer
                 </p:layoutUnit>
 
-                <p:layoutUnit position="west" size="200" header="Left" collapsible="true">
-                    <p:menu>
-                        <p:submenu label="Resources">
-                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
-                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
-
-                        </p:submenu>
-
-                    </p:menu>
+                <p:layoutUnit position="west" size="200" collapsible="true">
+                    <p:commandButton value="Novo Evento" id="btnNovoEvento" action="#{controllerHome.novoEvento}" styleClass="ui-priority-primary" />
                 </p:layoutUnit>
 
                 <p:layoutUnit position="east" size="280" header="Amigos" resizable="true" collapsible="true" effect="drop">
