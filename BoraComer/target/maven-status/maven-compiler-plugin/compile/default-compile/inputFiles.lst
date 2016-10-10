@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Usuario.java
 C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\HibernateUtil.java
 C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\UsuarioDAO.java
@@ -8,3 +9,15 @@ C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\EventoDAO.ja
 C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerLogin.java
 C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Endereco.java
 C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Evento.java
+=======
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Usuario.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\RestauranteDAO.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\UsuarioDAO.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Evento.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\EventoDAO.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Endereco.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerLogin.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\HibernateUtil.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerCadastro.java
+C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Restaurante.java
+>>>>>>> a7d0f0b70ac36290cc9147a00838695601fc15e9
