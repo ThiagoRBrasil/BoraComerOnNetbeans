@@ -2,7 +2,10 @@ package br.com.alive.boracomer.controller;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.faces.event.ActionEvent;
 
 @Named
 @RequestScoped
@@ -19,13 +22,19 @@ public class ControllerLogin {
 
     public String loginUsuario() {
         if (this.user.equals("admin") && this.pass.equals("admin")) {
-            return "welcomePrimefaces?faces-redirect=true";
+            return "home?faces-redirect=true";
         }
-        return "index?faces-redirect=true";
+        addMessage("erro");
+        return null;
     }
 
     public String cadastrarUsuario() {
         return "cadastrarUsuario?faces-redirect=true";
+    }
+
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
     public String getUser() {

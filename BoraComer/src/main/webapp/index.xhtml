@@ -21,8 +21,8 @@
                 <p:password id="inputPassword" value="#{controllerLogin.pass}" />
 
             </h:panelGrid>
-
-            <p:commandButton value="Entrar" id="btnLoginEntrar" action="#{controllerLogin.loginUsuario}" styleClass="ui-priority-primary" />
+            <p:growl id="growl" life="2000" />
+            <p:commandButton value="Entrar" id="btnLoginEntrar" update="growl" action="#{controllerLogin.loginUsuario}" styleClass="ui-priority-primary" />
             <p:commandButton value="Cadastrar" id="btnLoginCadastrar" action="#{controllerLogin.cadastrarUsuario}" styleClass="ui-priority-primary" />
         </h:form>
     </h:body>
