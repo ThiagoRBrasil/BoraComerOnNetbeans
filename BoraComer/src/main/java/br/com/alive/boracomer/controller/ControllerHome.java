@@ -16,4 +16,8 @@ public class ControllerHome {
         return "faces/index?faces-redirect=true";
     }
     
+    public String novoEvento(){
+        return "/novoEvento?faces-redirect=true";
+    }
+    
 }

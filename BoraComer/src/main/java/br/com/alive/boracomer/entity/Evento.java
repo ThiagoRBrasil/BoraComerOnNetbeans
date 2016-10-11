@@ -27,6 +27,10 @@ public class Evento implements Serializable {
     @Column(name = "descricao", nullable = true)
     private String descricao;
     
+    //
+    // ACRESCENTAR USUÁRIO_AUTOR\\
+    //
+    
     @Column(name = "comentarios", nullable = false)
     private final Queue<String> comentarios = new LinkedList<>();
     
