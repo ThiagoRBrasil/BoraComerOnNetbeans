@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: br.com.alive.boracomer.entity.EnderecoTest
--------------------------------------------------------------------------------
-<<<<<<< HEAD
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.287 sec
-=======
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec
->>>>>>> a7d0f0b70ac36290cc9147a00838695601fc15e9
