@@ -13,11 +13,11 @@ import javax.inject.Named;
 public class ControllerHome {
     
     public String logout(){
-        return "faces/index?faces-redirect=true";
+        return "index?redirect=true";
     }
     
     public String novoEvento(){
-        return "/novoEvento?faces-redirect=true";
+        return "index?faces-redirect=true";
     }
     
 }
