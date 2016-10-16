@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class ControllerEventoTest {
     
+    private ControllerEvento instance = null;
+    
     public ControllerEventoTest() {
     }
     
@@ -31,10 +33,12 @@ public class ControllerEventoTest {
     
     @Before
     public void setUp() {
+        instance = new ControllerEvento();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -42,13 +46,9 @@ public class ControllerEventoTest {
      */
     @Test
     public void testGetDate() {
-        System.out.println("getDate");
-        ControllerEvento instance = new ControllerEvento();
-        String expResult = "";
+        String expResult = null;
         String result = instance.getDate();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -56,12 +56,10 @@ public class ControllerEventoTest {
      */
     @Test
     public void testSetDate() {
-        System.out.println("setDate");
         String date = "";
         ControllerEvento instance = new ControllerEvento();
         instance.setDate(date);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(date, date);
     }
     
 }

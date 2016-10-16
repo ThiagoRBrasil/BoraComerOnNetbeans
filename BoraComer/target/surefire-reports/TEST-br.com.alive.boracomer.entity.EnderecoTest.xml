@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="br.com.alive.boracomer.entity.EnderecoTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="br.com.alive.boracomer.entity.EnderecoTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_51\jre\bin"/>
@@ -62,16 +62,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetContato" time="0"/>
   <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetIdEndereco" time="0"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetIdEndereco" time="0.001"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetBairro" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetIdEndereco" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetNumero" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetCidade" time="0"/>
   <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetCidade" time="0"/>
   <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetBairro" time="0"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetCidade" time="0"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetNumero" time="0"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetContato" time="0"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetNumero" time="0"/>
-  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetRua" time="0"/>
   <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetRua" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetBairro" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetContato" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testSetContato" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetRua" time="0"/>
+  <testcase classname="br.com.alive.boracomer.entity.EnderecoTest" name="testGetNumero" time="0"/>
 </testsuite>

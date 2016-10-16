@@ -23,11 +23,11 @@ public class ControllerCadastro {
     }
 
     public String cadastrarUsuario() {
-        return "faces/index?faces-redirect=true";
+        return "index?faces-redirect=true";
     }
 
     public String cancelarCadastro() {
-        return "faces/index?faces-redirect=true";
+        return "index?faces-redirect=true";
     }
 
     public Usuario getUsuario() {

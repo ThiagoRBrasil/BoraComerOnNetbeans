@@ -56,16 +56,12 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.6-Final</version>
         </dependency>
-<<<<<<< HEAD
-        <!--        <dependency>
-=======
-<!--        <dependency>
->>>>>>> e8b3f463b5cce5dac4864e7ba4c1e6059964d354
+           <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
             <scope>test</scope>
-        </dependency>-->
+        </dependency>
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
@@ -84,11 +80,6 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> e8b3f463b5cce5dac4864e7ba4c1e6059964d354
     </dependencies>
 
     <build>
