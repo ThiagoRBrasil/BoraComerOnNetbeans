@@ -1,34 +1,37 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "endereco-seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEndereco;
-    
+
     @Column(name = "rua", nullable = false)
     private String rua;
-    
+
     @Column(name = "numero", nullable = false)
     private Short numero;
-    
+
     @Column(name = "bairro", nullable = false)
     private String bairro;
-    
+
     @Column(name = "contato", nullable = true)
     private String contato;
-    
+
     @Column(name = "cidade", nullable = true)
     private String cidade;
 
     //
     //GETTERS AND SETTERS\\
     //
-
     public Long getIdEndereco() {
         return idEndereco;
     }
@@ -75,6 +78,31 @@ public class Endereco implements Serializable {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.idEndereco);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Endereco other = (Endereco) obj;
+        if (!Objects.equals(this.idEndereco, other.idEndereco)) {
+            return false;
+        }
+        return true;
     }
 
 }

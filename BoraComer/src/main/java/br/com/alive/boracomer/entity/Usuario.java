@@ -2,16 +2,20 @@ package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name = "usuario-seq", sequenceName = "usuario-seq", 
-        allocationSize = 1, initialValue = 1)
+@Table(name = "usuario")
 public class Usuario implements Serializable {
+    
+    private static final long serialVersionUID = 1L; 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "usuario-seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
     
     @Column(name = "nome", nullable = false)
@@ -20,10 +24,7 @@ public class Usuario implements Serializable {
     @Column(name = "password", nullable = false)
     private String pass;
     
-    @ManyToMany(cascade = CascadeType.DETACH)
-    @JoinTable(name = "friendZone", joinColumns = {@JoinColumn(name = "idUsuario")},
-            inverseJoinColumns = {@JoinColumn(name = "idUsuario")})
-    private final List<Usuario> amigos = new ArrayList<>();
+    private ArrayList<Usuario> amigos = new ArrayList<Usuario>();
     
     @Column(name = "idade", nullable = false)
     private int idade;
@@ -58,17 +59,13 @@ public class Usuario implements Serializable {
     public void setPass(String pass) {
         this.pass = pass;
     }
-    
-    public List<Usuario> getAmigos() {
+
+    public ArrayList<Usuario> getAmigos() {
         return amigos;
     }
 
-    public void addAmigo(Usuario amigo) {
-        this.amigos.add(amigo);
-    }
-    
-    public void removeAmigo(Usuario amigo) {
-        this.amigos.remove(amigo);
+    public void setAmigos(ArrayList<Usuario> amigos) {
+        this.amigos = amigos;
     }
 
     public int getIdade() {
@@ -85,6 +82,31 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.idUsuario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (!Objects.equals(this.idUsuario, other.idUsuario)) {
+            return false;
+        }
+        return true;
     }
     
 }
