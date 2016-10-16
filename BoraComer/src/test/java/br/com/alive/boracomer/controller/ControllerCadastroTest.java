@@ -19,6 +19,8 @@ import static org.junit.Assert.*;
  */
 public class ControllerCadastroTest {
     
+    private ControllerCadastro instance = null;
+    
     public ControllerCadastroTest() {
     }
     
@@ -32,10 +34,12 @@ public class ControllerCadastroTest {
     
     @Before
     public void setUp() {
+        instance = new ControllerCadastro();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -43,11 +47,8 @@ public class ControllerCadastroTest {
      */
     @Test
     public void testReset() {
-        System.out.println("reset");
         ControllerCadastro instance = new ControllerCadastro();
         instance.reset();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -55,13 +56,9 @@ public class ControllerCadastroTest {
      */
     @Test
     public void testCadastrarUsuario() {
-        System.out.println("cadastrarUsuario");
-        ControllerCadastro instance = new ControllerCadastro();
-        String expResult = "";
+        String expResult = "index?faces-redirect=true";
         String result = instance.cadastrarUsuario();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -69,13 +66,9 @@ public class ControllerCadastroTest {
      */
     @Test
     public void testCancelarCadastro() {
-        System.out.println("cancelarCadastro");
-        ControllerCadastro instance = new ControllerCadastro();
-        String expResult = "";
+        String expResult = "index?faces-redirect=true";
         String result = instance.cancelarCadastro();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -83,13 +76,9 @@ public class ControllerCadastroTest {
      */
     @Test
     public void testGetUsuario() {
-        System.out.println("getUsuario");
-        ControllerCadastro instance = new ControllerCadastro();
         Usuario expResult = null;
         Usuario result = instance.getUsuario();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -97,12 +86,10 @@ public class ControllerCadastroTest {
      */
     @Test
     public void testSetUsuario() {
-        System.out.println("setUsuario");
         Usuario usuario = null;
         ControllerCadastro instance = new ControllerCadastro();
         instance.setUsuario(usuario);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getUsuario(), usuario);
     }
     
 }

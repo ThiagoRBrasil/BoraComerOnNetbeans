@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  */
 public class ControllerHomeTest {
     
+    private ControllerHome instance = null;
+    
     public ControllerHomeTest() {
     }
     
@@ -31,10 +33,12 @@ public class ControllerHomeTest {
     
     @Before
     public void setUp() {
+        instance = new ControllerHome();
     }
     
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -42,13 +46,9 @@ public class ControllerHomeTest {
      */
     @Test
     public void testLogout() {
-        System.out.println("logout");
-        ControllerHome instance = new ControllerHome();
-        String expResult = "";
+        String expResult = "index?faces-redirect=true";
         String result = instance.logout();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -56,13 +56,9 @@ public class ControllerHomeTest {
      */
     @Test
     public void testNovoEvento() {
-        System.out.println("novoEvento");
-        ControllerHome instance = new ControllerHome();
-        String expResult = "";
+        String expResult = "novoEvento?faces-redirect=true";
         String result = instance.novoEvento();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

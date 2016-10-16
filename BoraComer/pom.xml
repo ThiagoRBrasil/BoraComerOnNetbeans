@@ -56,6 +56,16 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.6-Final</version>
         </dependency>
+<<<<<<< HEAD
+=======
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>5.0</version>
+        </dependency>
+        
+>>>>>>> 281e5d026d664e82faa442175fcac8fa90be9bc3
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>

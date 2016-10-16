@@ -17,24 +17,28 @@ import static org.junit.Assert.*;
  * @author ThiagoBrasil
  */
 public class ControllerLoginTest {
-    
+
+    private ControllerLogin instance = null;
+
     public ControllerLoginTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
+        instance = new ControllerLogin();
     }
-    
+
     @After
     public void tearDown() {
+        instance = null;
     }
 
     /**
@@ -42,10 +46,8 @@ public class ControllerLoginTest {
      */
     @Test
     public void testReset() {
-        System.out.println("reset");
-//        ControllerLogin instance = new ControllerLogin();
-//        instance.reset();
-//        fail("The test case is a prototype.");
+        ControllerLogin instance = new ControllerLogin();
+        instance.reset();
     }
 
     /**
@@ -53,12 +55,14 @@ public class ControllerLoginTest {
      */
     @Test
     public void testLoginUsuario() {
-        System.out.println("loginUsuario");
-//        ControllerLogin instance = new ControllerLogin();
-//        String expResult = "";
-//        String result = instance.loginUsuario();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        String user = "admin";
+        String pass = "admin";
+        String exp_result = "home?faces-redirect=true";
+        instance.setUser(user);
+        instance.setPass(pass);
+        String result = instance.loginUsuario();
+
+        assertEquals(exp_result, result);
     }
 
     /**
@@ -66,12 +70,9 @@ public class ControllerLoginTest {
      */
     @Test
     public void testCadastrarUsuario() {
-        System.out.println("cadastrarUsuario");
-//        ControllerLogin instance = new ControllerLogin();
-//        String expResult = "";
-//        String result = instance.cadastrarUsuario();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        String expResult = "cadastrarUsuario?faces-redirect=true";
+        String result = instance.cadastrarUsuario();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -79,11 +80,6 @@ public class ControllerLoginTest {
      */
     @Test
     public void testAddMessage() {
-        System.out.println("addMessage");
-//        String summary = "";
-//        ControllerLogin instance = new ControllerLogin();
-//        instance.addMessage(summary);
-//        fail("The test case is a prototype.");
     }
 
     /**
@@ -91,12 +87,9 @@ public class ControllerLoginTest {
      */
     @Test
     public void testGetUser() {
-        System.out.println("getUser");
-//        ControllerLogin instance = new ControllerLogin();
-//        String expResult = "";
-//        String result = instance.getUser();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        String expResult = null;
+        String result = instance.getUser();
+        assertEquals(expResult, result);
     }
 
     /**
@@ -104,11 +97,9 @@ public class ControllerLoginTest {
      */
     @Test
     public void testSetUser() {
-        System.out.println("setUser");
-//        String user = "";
-//        ControllerLogin instance = new ControllerLogin();
-//        instance.setUser(user);
-//        fail("The test case is a prototype.");
+        String user = null;
+        ControllerLogin instance = new ControllerLogin();
+        instance.setUser(user);
     }
 
     /**
@@ -116,24 +107,19 @@ public class ControllerLoginTest {
      */
     @Test
     public void testGetPass() {
-        System.out.println("getPass");
-//        ControllerLogin instance = new ControllerLogin();
-//        String expResult = "";
-//        String result = instance.getPass();
-//        assertEquals(expResult, result);
-//        fail("The test case is a prototype.");
+        String expResult = null;
+        String result = instance.getPass();
+        assertEquals(expResult, result);
     }
-    
+
     /**
      * Test of setPass method, of class ControllerLogin.
      */
     @Test
     public void testSetPass() {
-        System.out.println("setPass");
-//        String pass = "";
-//        ControllerLogin instance = new ControllerLogin();
-//        instance.setPass(pass);
-//        fail("The test case is a prototype.");
+        String pass = null;
+        ControllerLogin instance = new ControllerLogin();
+        instance.setPass(pass);
     }
-    
+
 }
