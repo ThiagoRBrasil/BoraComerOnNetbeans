@@ -4,12 +4,13 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name = "restaurante-seq", sequenceName = "restaurante-seq", 
-        allocationSize = 1, initialValue = 1)
+@Table(name = "restaurante")
 public class Restaurante implements Serializable {
+    
+    private static final long serialVersionUID = 1L; 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "restaurante-seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRestaurante;
     
     @Column(name = "nome", nullable = false)

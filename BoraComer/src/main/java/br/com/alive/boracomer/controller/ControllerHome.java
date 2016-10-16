@@ -9,7 +9,7 @@ import javax.inject.Named;
 public class ControllerHome {
     
     public String logout(){
-        return "index?redirect=true";
+        return "index?faces-redirect=true";
     }
     
     public String novoEvento(){
