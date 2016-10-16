@@ -56,39 +56,12 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.6-Final</version>
         </dependency>
-<<<<<<< HEAD
-        <!--        <dependency>
-=======
-<!--        <dependency>
->>>>>>> e8b3f463b5cce5dac4864e7ba4c1e6059964d354
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>-->
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>5.0</version>
-        </dependency>
-        
-        <!--        <dependency>
-            <groupId>unknown.binary</groupId>
-            <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
-            <version>SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>-->
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
-            <scope>provided</scope>
+            <type>jar</type>
         </dependency>
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> e8b3f463b5cce5dac4864e7ba4c1e6059964d354
     </dependencies>
 
     <build>
