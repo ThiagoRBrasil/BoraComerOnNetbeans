@@ -5,6 +5,7 @@
  */
 package br.com.alive.boracomer.controller;
 
+import java.io.Serializable;
 import br.com.alive.boracomer.entity.Usuario;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;

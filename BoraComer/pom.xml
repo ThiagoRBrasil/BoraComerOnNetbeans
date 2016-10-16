@@ -23,6 +23,12 @@
             <scope>compile</scope> 
         </dependency>
         
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        
         <!-- Núcleo do Hibernate -->
         <dependency> 
             <groupId>org.hibernate</groupId> 
@@ -50,19 +56,19 @@
             <artifactId>hibernate-annotations</artifactId>
             <version>3.5.6-Final</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>5.0</version>
         </dependency>
         
-<!--        <dependency>
+        <!--        <dependency>
             <groupId>unknown.binary</groupId>
             <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
             <version>SNAPSHOT</version>
@@ -129,7 +135,8 @@
     <repositories>
         <repository>
             <id>unknown-jars-temp-repo</id>
-            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. 
+                Please replace the dependencies in this repository with correct ones and delete this repository.</name>
             <url>file:${project.basedir}/lib</url>
         </repository>
         <repository>
