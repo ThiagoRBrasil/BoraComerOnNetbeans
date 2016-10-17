@@ -3,102 +3,86 @@ package br.com.alive.boracomer.dao;
 import br.com.alive.boracomer.entity.Evento;
 
 import java.util.List;
-
-import javax.enterprise.context.Dependent;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 
-@Named
-@Dependent
-public class EventoDAO {
+public class EventoDAO extends JPAUtil {
 
-//    private Session sessao;
-//    private Transaction transacao;
-//
-//    public void salvar(Evento evento) {
-//        try {
-//            sessao = HibernateUtil.getSession();
-//            transacao = sessao.beginTransaction();
-//            sessao.save(evento);
-//            transacao.commit();
-//        } finally {
-//            sessao.close();
-//        }
-//    }
-//
-//    public void atualizar(Evento evento) {
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            transacao = sessao.beginTransaction();
-//            sessao.update(evento);
-//            transacao.commit();
-//        } finally {
-//            sessao.close();
-//        }
-//    }
-//
-//    public void excluir(Evento evento) {
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            transacao = sessao.beginTransaction();
-//            sessao.delete(evento);
-//            transacao.commit();
-//        } finally {
-//            sessao.close();
-//        }
-//    }
-//
-//    public List<Evento> listar() {
-//        List<Evento> eventos;
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            eventos
-//                    = sessao.createCriteria(Evento.class)
-//                    .list();
-//        } finally {
-//            sessao.close();
-//        }
-//        return eventos;
-//    }
-//
-//    public Evento listar(Long id) {
-//        Evento evento;
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            evento = (Evento) sessao.createCriteria(Evento.class)
-//                    .add(Restrictions.eq("id", id))
-//                    .uniqueResult();
-//        } finally {
-//            sessao.close();
-//        }
-//        return evento;
-//    }
-    @PersistenceContext(unitName = "BoraComerPU")
-    private EntityManager em;
+    private static EventoDAO instance;
 
-    @Transactional
-    public void excluir(Evento usuario) {
-        this.em.remove(this.em.contains(usuario) ? usuario : this.em.merge(usuario));
+    public static EventoDAO getInstance() {
+        if (instance == null) {
+            instance = new EventoDAO();
+        }
+
+        return instance;
+    }
+
+    private EventoDAO() {
+        entityManager = getEntityManager();
+    }
+
+    public Evento salvar(Evento evento) throws Exception {
+        EntityManager entityManager = getEntityManager();
+        try {
+            getEntityManager();
+            entityManager.getTransaction().begin();
+            if (evento.getIdEvento() == null) {
+                entityManager.persist(evento);
+            } else {
+                evento = entityManager.merge(evento);
+            }
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        } finally {
+            entityManager.close();
+        }
+        return evento;
+    }
+    
+    public void atualizar(Evento evento) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(evento);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+    }
+
+    public void excluir(Long id) {
+        EntityManager entityManager = getEntityManager();
+        try {
+            entityManager.getTransaction().begin();
+            Evento evento = entityManager.find(Evento.class, id);
+            entityManager.remove(evento);
+            entityManager.getTransaction().commit();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public Evento getById(final Long id) {
+        return entityManager.find(Evento.class, id);
+    }
+
+    public boolean containsEvento(Evento evento) {
+        EntityManager entityManager = new JPAUtil().getEntityManager();
+        boolean exist;
+        try {
+            entityManager.getTransaction().begin();
+            exist = entityManager.contains(evento);
+        } finally {
+            entityManager.close();
+        }
+        return exist;
     }
 
     @SuppressWarnings("unchecked")
-    public List<Evento> listaEventos() {
-        return this.em.createQuery("select u from evento u").getResultList();
-    }
-
-    @Transactional
-    public void salvar(Evento usuario) {
-        this.em.merge(usuario);
-    }
-
-    public void atualizar(Evento usuario) {
-        this.em.merge(usuario);
+    public List<Evento> findAll() {
+        return entityManager.createQuery("FROM " + Evento.class.getName()).getResultList();
     }
 
 }

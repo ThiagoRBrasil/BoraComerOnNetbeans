@@ -1,13 +1,14 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "restaurante")
 public class Restaurante implements Serializable {
     
-    private static final long serialVersionUID = 1L; 
+    private static final long serialVersionUID = -8793738068211537546L; 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,6 +58,31 @@ public class Restaurante implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.idRestaurante);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Restaurante other = (Restaurante) obj;
+        if (!Objects.equals(this.idRestaurante, other.idRestaurante)) {
+            return false;
+        }
+        return true;
     }
 
 }
