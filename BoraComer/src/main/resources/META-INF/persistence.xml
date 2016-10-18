@@ -2,7 +2,7 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence                                    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="BoraComerPU" transaction-type="JTA">
     <!--<persistence-unit name="BoraComerPU" transaction-type="RESOURCE_LOCAL">-->
-    <!--<jta-data-source>java:jboss/datasources/boracomer</jta-data-source>-->
+    <jta-data-source>java:jboss/datasources/boracomer</jta-data-source>
     <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
     <class>br.com.alive.boracomer.entity.Endereco</class>
     <class>br.com.alive.boracomer.entity.Evento</class>
