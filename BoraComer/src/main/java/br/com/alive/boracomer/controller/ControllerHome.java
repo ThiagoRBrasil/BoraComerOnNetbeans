@@ -15,5 +15,5 @@ public class ControllerHome {
     public String novoEvento(){
         return "novoEvento?faces-redirect=true";
     }
-    
+     
 }
