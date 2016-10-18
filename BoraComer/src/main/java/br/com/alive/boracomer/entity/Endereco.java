@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "endereco")
 public class Endereco implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -8793738068211537546L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Endereco implements Serializable {
     private String rua;
 
     @Column(name = "numero", nullable = false)
-    private Short numero;
+    private String numero;
 
     @Column(name = "bairro", nullable = false)
     private String bairro;
@@ -48,11 +48,11 @@ public class Endereco implements Serializable {
         this.rua = rua;
     }
 
-    public Short getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Short numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

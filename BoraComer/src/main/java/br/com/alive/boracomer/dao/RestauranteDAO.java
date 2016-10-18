@@ -4,101 +4,69 @@ import br.com.alive.boracomer.entity.Restaurante;
 
 import java.util.List;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+public class RestauranteDAO extends JPAUtil {
 
-@Named
-@Dependent
-public class RestauranteDAO {
+    private static RestauranteDAO instance;
 
-//    private Session sessao;
-//    private Transaction transacao;
-//
-//    public void salvar(Restaurante restaurante) {
-//        try {
-//            sessao = HibernateUtil.getSession();
-//            transacao = sessao.beginTransaction();
-//            sessao.save(restaurante);
-//            transacao.commit();
-//        } finally {
-//            sessao.close();
-//        }
-//    }
-//
-//    public void atualizar(Restaurante restaurante) {
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            transacao = sessao.beginTransaction();
-//            sessao.update(restaurante);
-//            transacao.commit();
-//        } finally {
-//            sessao.close();
-//        }
-//    }
-//
-//    public void excluir(Restaurante restaurante) {
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            transacao = sessao.beginTransaction();
-//            sessao.delete(restaurante);
-//            transacao.commit();
-//        } finally {
-//            sessao.close();
-//        }
-//    }
-//
-//    public List<Restaurante> listar() {
-//        List<Restaurante> restaurantes;
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            restaurantes
-//                    = sessao.createCriteria(Restaurante.class)
-//                    .list();
-//        } finally {
-//            sessao.close();
-//        }
-//        return restaurantes;
-//    }
-//
-//    public Restaurante listar(Long id) {
-//        Restaurante restaurante;
-//        try {
-//            sessao = HibernateUtil.getSessionFactory().
-//                    openSession();
-//            restaurante = (Restaurante) sessao.createCriteria(Restaurante.class)
-//                    .add(Restrictions.eq("id", id))
-//                    .uniqueResult();
-//        } finally {
-//            sessao.close();
-//        }
-//        return restaurante;
-//    }
-    @PersistenceContext(unitName = "BoraComerPU")
-    private EntityManager em;
+    public static RestauranteDAO getInstance() {
+        if (instance == null) {
+            instance = new RestauranteDAO();
+        }
 
-    @Transactional
-    public void excluir(Restaurante restaurante) {
-        this.em.remove(this.em.contains(restaurante) ? restaurante : this.em.merge(restaurante));
+        return instance;
+    }
+
+    private RestauranteDAO() {
+        entityManager = getEntityManager();
+    }
+
+    public Restaurante salvar(Restaurante restaurante) throws Exception {
+        try {
+            entityManager.getTransaction().begin();
+            if (restaurante.getIdRestaurante() == null) {
+                entityManager.persist(restaurante);
+            } else {
+                restaurante = entityManager.merge(restaurante);
+            }
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        } finally {
+            entityManager.close();
+        }
+        return restaurante;
+    }
+
+    public void excluir(Long id) {
+        try {
+            entityManager.getTransaction().begin();
+            Restaurante restaurante = entityManager.find(Restaurante.class, id);
+            entityManager.remove(restaurante);
+            entityManager.getTransaction().commit();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public Restaurante getById(final Long id) {
+        return entityManager.find(Restaurante.class, id);
+    }
+
+    public boolean containsEvento(Restaurante restaurante) {
+        boolean exist;
+        try {
+            entityManager.getTransaction().begin();
+            exist = entityManager.contains(restaurante);
+        } finally {
+            entityManager.close();
+        }
+        return exist;
     }
 
     @SuppressWarnings("unchecked")
-    public List<Restaurante> listaEventos() {
-        return this.em.createQuery("select u from restaurante u").getResultList();
-    }
-
-    @Transactional
-    public void salvar(Restaurante restaurante) {
-        this.em.merge(restaurante);
-    }
-
-    public void atualizar(Restaurante restaurante) {
-        this.em.merge(restaurante);
+    public List<Restaurante> findAll() {
+        return entityManager.createQuery("FROM " + Restaurante.class.getName()).getResultList();
     }
 
 }

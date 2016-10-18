@@ -2,7 +2,6 @@ package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "evento")
 public class Evento implements Serializable {
     
-    private static final long serialVersionUID = 1L; 
+    private static final long serialVersionUID = -8793738068211537546L; 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +17,7 @@ public class Evento implements Serializable {
     
     @Column(name = "nome", nullable = false)
     private String nome;
-    
+ 
     @Column(name = "local", nullable = false)
     private Restaurante local;
     
