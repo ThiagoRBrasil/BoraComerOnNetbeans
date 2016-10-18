@@ -27,7 +27,7 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="200">
-                    <p:commandButton value="Novo Evento" id="btnNovoEvento" action="#{controllerHome.novoEvento}" styleClass="ui-priority-primary" />
+                    <p:commandButton value="Novo Evento" id="btnNovoEvento" actionListener="#{requestContextView.novoEbento}" styleClass="ui-priority-primary" oncomplete="handleComplete(xhr, status, args)" />
                 </p:layoutUnit>
 
                 <p:layoutUnit position="east" size="280" header="Amigos" resizable="true" collapsible="true" effect="drop">
