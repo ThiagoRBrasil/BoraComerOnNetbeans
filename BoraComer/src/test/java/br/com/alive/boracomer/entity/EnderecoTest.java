@@ -92,8 +92,8 @@ public class EnderecoTest {
     @Test
     public void testGetNumero() {
         System.out.println("getNumero");
-        Short expResult = null;
-        Short result = instance.getNumero();
+        String expResult = null;
+        String result = instance.getNumero();
         assertEquals(expResult, result);
     }
 
@@ -103,7 +103,7 @@ public class EnderecoTest {
     @Test
     public void testSetNumero() {
         System.out.println("setNumero");
-        Short numero = null;
+        String numero = null;
         instance.setNumero(numero);
         assertEquals(null, instance.getNumero());
     }

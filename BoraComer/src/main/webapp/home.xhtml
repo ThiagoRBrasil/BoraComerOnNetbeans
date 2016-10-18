@@ -19,7 +19,9 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    <p:commandButton value="Sair" id="btnLoginSair" action="#{controllerHome.logout}" styleClass="ui-priority-primary" />
+                    <h:form>
+                        <p:commandButton value="Sair" id="btnLoginSair" action="#{controllerHome.logout}" styleClass="ui-priority-primary" />
+                    </h:form>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
@@ -27,7 +29,13 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="200">
+<<<<<<< HEAD
                     <p:commandButton value="Novo Evento" id="btnNovoEvento" actionListener="#{requestContextView.novoEbento}" styleClass="ui-priority-primary" oncomplete="handleComplete(xhr, status, args)" />
+=======
+                    <h:form>
+                        <p:commandButton value="Novo Evento" id="btnNovoEvento" action="#{controllerHome.novoEvento}" styleClass="ui-priority-primary" />
+                    </h:form>
+>>>>>>> 539f594decd1d98f35c73269ecfbbf2ddb2c3d6c
                 </p:layoutUnit>
 
                 <p:layoutUnit position="east" size="280" header="Amigos" resizable="true" collapsible="true" effect="drop">

@@ -1,79 +1,72 @@
- package br.com.alive.boracomer.dao;
-
-import br.com.alive.boracomer.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+package br.com.alive.boracomer.dao;
 
 import br.com.alive.boracomer.entity.Restaurante;
+
 import java.util.List;
-import org.hibernate.criterion.Restrictions;
 
-public class RestauranteDAO {
+public class RestauranteDAO extends JPAUtil {
 
-    private Session sessao;
-    private Transaction transacao;
+    private static RestauranteDAO instance;
 
-    public void salvar(Restaurante restaurante) {
-        try {
-            sessao = HibernateUtil.getSession();
-            transacao = sessao.beginTransaction();
-            sessao.save(restaurante);
-            transacao.commit();
-        } finally {
-            sessao.close();
+    public static RestauranteDAO getInstance() {
+        if (instance == null) {
+            instance = new RestauranteDAO();
         }
+
+        return instance;
     }
 
-    public void atualizar(Restaurante restaurante) {
-        try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            transacao = sessao.beginTransaction();
-            sessao.update(restaurante);
-            transacao.commit();
-        } finally {
-            sessao.close();
-        }
+    private RestauranteDAO() {
+        entityManager = getEntityManager();
     }
 
-    public void excluir(Restaurante restaurante) {
+    public Restaurante salvar(Restaurante restaurante) throws Exception {
         try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            transacao = sessao.beginTransaction();
-            sessao.delete(restaurante);
-            transacao.commit();
+            entityManager.getTransaction().begin();
+            if (restaurante.getIdRestaurante() == null) {
+                entityManager.persist(restaurante);
+            } else {
+                restaurante = entityManager.merge(restaurante);
+            }
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
         } finally {
-            sessao.close();
-        }
-    }
-
-    public List<Restaurante> listar() {
-        List<Restaurante> restaurantes;
-        try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            restaurantes
-                    = sessao.createCriteria(Restaurante.class)
-                    .list();
-        } finally {
-            sessao.close();
-        }
-        return restaurantes;
-    }
-
-    public Restaurante listar(Long id) {
-        Restaurante restaurante;
-        try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            restaurante = (Restaurante) sessao.createCriteria(Restaurante.class)
-                    .add(Restrictions.eq("id", id))
-                    .uniqueResult();
-        } finally {
-            sessao.close();
+            entityManager.close();
         }
         return restaurante;
     }
-    
+
+    public void excluir(Long id) {
+        try {
+            entityManager.getTransaction().begin();
+            Restaurante restaurante = entityManager.find(Restaurante.class, id);
+            entityManager.remove(restaurante);
+            entityManager.getTransaction().commit();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public Restaurante getById(final Long id) {
+        return entityManager.find(Restaurante.class, id);
+    }
+
+    public boolean containsEvento(Restaurante restaurante) {
+        boolean exist;
+        try {
+            entityManager.getTransaction().begin();
+            exist = entityManager.contains(restaurante);
+        } finally {
+            entityManager.close();
+        }
+        return exist;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Restaurante> findAll() {
+        return entityManager.createQuery("FROM " + Restaurante.class.getName()).getResultList();
+    }
+
 }

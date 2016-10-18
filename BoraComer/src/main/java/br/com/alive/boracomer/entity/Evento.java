@@ -1,24 +1,24 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.Objects;
 import javax.persistence.*;
 
 @Entity
-@SequenceGenerator(name = "evento-seq", sequenceName = "evento-seq", 
-        allocationSize = 1, initialValue = 1)
+@Table(name = "evento")
 public class Evento implements Serializable {
+    
+    private static final long serialVersionUID = -8793738068211537546L; 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "evento-seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEvento;
     
     @Column(name = "nome", nullable = false)
     private String nome;
-    
-    @OneToOne(optional = false, 
-            cascade = CascadeType.DETACH)
+ 
+    @Column(name = "local", nullable = false)
     private Restaurante local;
     
     @Column(name = "horario", nullable = true)
@@ -31,8 +31,8 @@ public class Evento implements Serializable {
     // ACRESCENTAR USUÁRIO_AUTOR\\
     //
     
-    @Column(name = "comentarios", nullable = false)
-    private final Queue<String> comentarios = new LinkedList<>();
+    @Column(name = "comentarios", nullable = true)
+    private ArrayList<String> comentarios = new ArrayList();
     
     //
     //GETTERS AND SETTERS\\
@@ -77,5 +77,40 @@ public class Evento implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public ArrayList<String> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(ArrayList<String> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.idEvento);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Evento other = (Evento) obj;
+        if (!Objects.equals(this.idEvento, other.idEvento)) {
+            return false;
+        }
+        return true;
+    }
+
+    
 
 }

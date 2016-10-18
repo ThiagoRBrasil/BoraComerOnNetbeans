@@ -1,79 +1,76 @@
 package br.com.alive.boracomer.dao;
 
-import br.com.alive.boracomer.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
 import br.com.alive.boracomer.entity.Usuario;
+
 import java.util.List;
-import org.hibernate.criterion.Restrictions;
 
-public class UsuarioDAO {
+public class UsuarioDAO extends JPAUtil {
 
-    private Session sessao;
-    private Transaction transacao;
+    private static UsuarioDAO instance;
+
+    public static UsuarioDAO getInstance() {
+        if (instance == null) {
+            instance = new UsuarioDAO();
+        }
+
+        return instance;
+    }
+
+    private UsuarioDAO() {
+        entityManager = super.getEntityManager();
+    }
 
     public void salvar(Usuario usuario) {
         try {
-            sessao = HibernateUtil.getSession();
-            transacao = sessao.beginTransaction();
-            sessao.save(usuario);
-            transacao.commit();
-        } finally {
-            sessao.close();
+            entityManager.getTransaction().begin();
+            entityManager.persist(usuario);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
         }
     }
 
     public void atualizar(Usuario usuario) {
         try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            transacao = sessao.beginTransaction();
-            sessao.update(usuario);
-            transacao.commit();
-        } finally {
-            sessao.close();
+            entityManager.getTransaction().begin();
+            entityManager.merge(usuario);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
         }
     }
 
-    public void excluir(Usuario usuario) {
+    public void excluir(Long id) {
         try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            transacao = sessao.beginTransaction();
-            sessao.delete(usuario);
-            transacao.commit();
+            entityManager.getTransaction().begin();
+            Usuario usuario = entityManager.find(Usuario.class, id);
+            entityManager.remove(usuario);
+            entityManager.getTransaction().commit();
         } finally {
-            sessao.close();
+            entityManager.close();
         }
     }
 
-    public List<Usuario> listar() {
-        List<Usuario> usuarios;
-        try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            usuarios
-                    = sessao.createCriteria(Usuario.class)
-                    .list();
-        } finally {
-            sessao.close();
-        }
-        return usuarios;
+    public Usuario getById(final Long id) {
+        return entityManager.find(Usuario.class, id);
     }
 
-    public Usuario listar(Long id) {
-        Usuario usuario;
+    public boolean containsEvento(Usuario evento) {
+        boolean exist;
         try {
-            sessao = HibernateUtil.getSessionFactory().
-                    openSession();
-            usuario = (Usuario) sessao.createCriteria(Usuario.class)
-                    .add(Restrictions.eq("id", id))
-                    .uniqueResult();
+            entityManager.getTransaction().begin();
+            exist = entityManager.contains(evento);
         } finally {
-            sessao.close();
+            entityManager.close();
         }
-        return usuario;
+        return exist;
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Usuario> findAll() {
+        return entityManager.createQuery("FROM " + Usuario.class.getName()).getResultList();
     }
 
 }
