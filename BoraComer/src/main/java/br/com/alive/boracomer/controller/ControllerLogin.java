@@ -31,6 +31,10 @@ public class ControllerLogin implements Serializable {
     public String cadastrarUsuario() {
         return "cadastrarUsuario?faces-redirect=true";
     }
+    
+    public String cadastrarRestaurante() {
+        return "cadastrarRestaurante?faces-redirect=true";
+    }
 
     public void addMessage(String summary) {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
