@@ -109,28 +109,6 @@ public class UsuarioTest {
     }
 
     /**
-     * Test of getAmigos method, of class Usuario.
-     */
-    @Test
-    public void testGetAmigos() {
-        System.out.println("getAmigos");
-        ArrayList<Usuario> amigos = null;
-        instance.setAmigos(amigos);
-        assertEquals(amigos, instance.getAmigos());
-    }
-
-    /**
-     * Test of setAmigos method, of class Usuario.
-     */
-    @Test
-    public void testSetAmigos() {
-        System.out.println("setAmigos");
-        ArrayList<Usuario> amigos = null;
-        instance.setAmigos(amigos);
-        assertEquals(amigos, instance.getAmigos());
-    }
-
-    /**
      * Test of getIdade method, of class Usuario.
      */
     @Test

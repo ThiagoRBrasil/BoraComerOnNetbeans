@@ -29,6 +29,8 @@ public class Endereco implements Serializable {
     @Column(name = "cidade", nullable = true)
     private String cidade;
 
+    @OneToOne(mappedBy = "endereco")
+    private Restaurante restaurante;
     //
     //GETTERS AND SETTERS\\
     //
@@ -78,6 +80,14 @@ public class Endereco implements Serializable {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
+    }
+
+    public Restaurante getRestaurante() {
+        return restaurante;
+    }
+
+    public void setRestaurante(Restaurante restaurante) {
+        this.restaurante = restaurante;
     }
 
     @Override

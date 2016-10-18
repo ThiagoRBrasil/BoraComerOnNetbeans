@@ -1,6 +1,7 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -13,6 +14,9 @@ public class Restaurante implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRestaurante;
+    
+    @OneToMany(mappedBy = "restaurante")
+    private List<Evento> eventos;
     
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -58,6 +62,14 @@ public class Restaurante implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
     }
 
     @Override

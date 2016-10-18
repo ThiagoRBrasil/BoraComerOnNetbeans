@@ -90,9 +90,9 @@ public class EventoTest {
      */
     @org.junit.Test
     public void testGetLocal() {
-        System.out.println("getLocal");
+        System.out.println("getRestaurante");
         Restaurante expResult = null;
-        Restaurante result = instance.getLocal();
+        Restaurante result = instance.getRestaurante();
         assertEquals(expResult, result);
     }
 
@@ -101,10 +101,10 @@ public class EventoTest {
      */
     @org.junit.Test
     public void testSetLocal() {
-        System.out.println("setLocal");
-        Restaurante local = null;
-        instance.setLocal(local);
-        assertEquals(local, local);
+        System.out.println("getRestaurante");
+        Restaurante restaurante = null;
+        instance.setRestaurante(restaurante);
+        assertEquals(restaurante, restaurante);
     }
 
     /**

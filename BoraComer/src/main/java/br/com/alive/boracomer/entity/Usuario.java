@@ -2,6 +2,7 @@ package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -21,7 +22,13 @@ public class Usuario implements Serializable {
     @Column(name = "password", nullable = false)
     private String pass;
     
-    private ArrayList<Usuario> amigos = new ArrayList<Usuario>();
+    @OneToOne(optional = true,
+            cascade = CascadeType.ALL)
+    private Evento evento;
+    
+    @OneToMany
+    @JoinColumn(name = "amigo")
+    private List<Amigo> amigos;
     
     @Column(name = "idade", nullable = false)
     private int idade;
@@ -57,11 +64,11 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
-    public ArrayList<Usuario> getAmigos() {
+    public List<Amigo> getAmigos() {
         return amigos;
     }
 
-    public void setAmigos(ArrayList<Usuario> amigos) {
+    public void setAmigos(List<Amigo> amigos) {
         this.amigos = amigos;
     }
 
