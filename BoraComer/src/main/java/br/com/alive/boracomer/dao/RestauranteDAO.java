@@ -17,25 +17,29 @@ public class RestauranteDAO extends JPAUtil {
     }
 
     private RestauranteDAO() {
-        entityManager = getEntityManager();
+        entityManager = super.getEntityManager();
     }
 
-    public Restaurante salvar(Restaurante restaurante) throws Exception {
+    public void salvar(Restaurante restaurante) {
         try {
             entityManager.getTransaction().begin();
-            if (restaurante.getId_restaurante() == null) {
-                entityManager.persist(restaurante);
-            } else {
-                restaurante = entityManager.merge(restaurante);
-            }
+            entityManager.persist(restaurante);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
-        } finally {
-            entityManager.close();
         }
-        return restaurante;
+    }
+    
+    public void atualizar(Restaurante restaurante) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.merge(restaurante);
+            entityManager.getTransaction().commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
     }
 
     public void excluir(Long id) {
