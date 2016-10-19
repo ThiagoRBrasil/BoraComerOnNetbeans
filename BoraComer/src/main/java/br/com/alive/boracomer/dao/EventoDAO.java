@@ -21,24 +21,15 @@ public class EventoDAO extends JPAUtil {
         entityManager = getEntityManager();
     }
 
-    public Evento salvar(Evento evento) throws Exception {
-        EntityManager entityManager = getEntityManager();
+    public void salvar(Evento evento) {
         try {
-            getEntityManager();
             entityManager.getTransaction().begin();
-            if (evento.getId_evento()== null) {
-                entityManager.persist(evento);
-            } else {
-                evento = entityManager.merge(evento);
-            }
+            entityManager.persist(evento);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
-        } finally {
-            entityManager.close();
         }
-        return evento;
     }
     
     public void atualizar(Evento evento) {
@@ -53,7 +44,6 @@ public class EventoDAO extends JPAUtil {
     }
 
     public void excluir(Long id) {
-        EntityManager entityManager = getEntityManager();
         try {
             entityManager.getTransaction().begin();
             Evento evento = entityManager.find(Evento.class, id);

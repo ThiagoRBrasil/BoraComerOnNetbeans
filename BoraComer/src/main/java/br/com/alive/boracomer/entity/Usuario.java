@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
     private String pass;
 
     @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
-    private List<Evento> evento;
+    private List<Evento> eventos;
 
     @OneToMany(mappedBy = "usuario")
     private List<Amigo> amigos;
@@ -46,6 +46,13 @@ public class Usuario implements Serializable {
     //
     //GETTERS AND SETTERS\\
     //
+    public void addEvento(Evento evento){
+        eventos.add(evento);
+    }
+    
+    public void removeEvento(Evento evento){
+        eventos.remove(evento);
+    }
 
     public Long getId_usuario() {
         return id_usuario;
@@ -71,12 +78,12 @@ public class Usuario implements Serializable {
         this.pass = pass;
     }
 
-    public Evento getEvento() {
-        return evento;
+    public List<Evento> getEvento() {
+        return eventos;
     }
 
-    public void setEvento(Evento evento) {
-        this.evento = evento;
+    public void setEvento(List<Evento> evento) {
+        this.eventos = evento;
     }
 
     public List<Amigo> getAmigos() {

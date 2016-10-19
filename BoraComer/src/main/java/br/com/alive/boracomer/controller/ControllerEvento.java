@@ -11,33 +11,33 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class ControllerEvento implements Serializable{
-    
+public class ControllerEvento extends Controller implements Serializable {
+
     private Evento evento;
     private String nome;
     private Restaurante local;
     private String descricao;
     private String date;
     private String hora;
-    
-    
-    public String cadastrar(){
-        try{
+
+    public String cadastrar() {
+        try {
             evento.setNome(nome);
             evento.setRestaurante(local);
             evento.setDescricao(descricao);
             evento.setDate(date);
             evento.setHora(hora);
-            user.setEvento(evento);
-            
-            UsuarioDAO.getInstance().atualizar(user);
-            
+
+            super.usuario.addEvento(evento);
+
+            EventoDAO.getInstance().salvar(evento);
+            UsuarioDAO.getInstance().atualizar(usuario);
+
             return "home?faces-redirect=true";
-        }catch(Exception e){            
+        } catch (Exception e) {
         }
         return null;
     }
-    
 
     public Evento getEvento() {
         return evento;
@@ -47,14 +47,6 @@ public class ControllerEvento implements Serializable{
         this.evento = evento;
     }
 
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-    }
-    
     public String getNome() {
         return nome;
     }
@@ -86,17 +78,17 @@ public class ControllerEvento implements Serializable{
     public void setHora(String hora) {
         this.hora = hora;
     }
-    
+
     public String getDate() {
         return date;
     }
- 
+
     public void setDate(String date) {
         this.date = date;
     }
-    
-    public void marcarAmigos(){
-        
+
+    public void marcarAmigos() {
+
     }
-    
+
 }

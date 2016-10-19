@@ -19,7 +19,7 @@ public class UsuarioDAO extends JPAUtil {
     private UsuarioDAO() {
         entityManager = super.getEntityManager();
     }
-    
+
     public void salvar(Usuario usuario) {
         try {
             entityManager.getTransaction().begin();
