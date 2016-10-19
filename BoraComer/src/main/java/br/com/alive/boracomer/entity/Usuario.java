@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
     private String pass;
 
     @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
-    private Evento evento;
+    private List<Evento> evento;
 
     @OneToMany(mappedBy = "usuario")
     private List<Amigo> amigos;
