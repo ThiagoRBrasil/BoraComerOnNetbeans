@@ -1,6 +1,7 @@
 package br.com.alive.boracomer.controller;
 
 import br.com.alive.boracomer.dao.EventoDAO;
+import br.com.alive.boracomer.dao.UsuarioDAO;
 import br.com.alive.boracomer.entity.Evento;
 import br.com.alive.boracomer.entity.Restaurante;
 import br.com.alive.boracomer.entity.Usuario;
@@ -18,7 +19,7 @@ public class ControllerEvento implements Serializable{
     private String descricao;
     private String date;
     private String hora;
-    private Usuario user;
+    
     
     public String cadastrar(){
         try{
@@ -27,14 +28,16 @@ public class ControllerEvento implements Serializable{
             evento.setDescricao(descricao);
             evento.setDate(date);
             evento.setHora(hora);
-            EventoDAO.getInstance().salvar(evento);
+            user.setEvento(evento);
+            
+            UsuarioDAO.getInstance().atualizar(user);
+            
             return "home?faces-redirect=true";
-        }catch(Exception e){
-            //teste para ver se cai aqui
-            return "novoEvento?faces-redirect=true";
+        }catch(Exception e){            
         }
-        
+        return null;
     }
+    
 
     public Evento getEvento() {
         return evento;

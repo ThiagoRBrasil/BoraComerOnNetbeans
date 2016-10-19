@@ -17,11 +17,11 @@ import static org.junit.Assert.*;
  *
  * @author Isaac Teixeira
  */
-public class ControllerCadastroTest {
+public class ControllerCadastroUsuarioTest {
     
-    private ControllerCadastro instance = null;
+    private ControllerCadastroUsuario instance = null;
     
-    public ControllerCadastroTest() {
+    public ControllerCadastroUsuarioTest() {
     }
     
     @BeforeClass
@@ -34,7 +34,7 @@ public class ControllerCadastroTest {
     
     @Before
     public void setUp() {
-        instance = new ControllerCadastro();
+        instance = new ControllerCadastroUsuario();
     }
     
     @After
@@ -43,16 +43,16 @@ public class ControllerCadastroTest {
     }
 
     /**
-     * Test of reset method, of class ControllerCadastro.
+     * Test of reset method, of class ControllerCadastroUsuario.
      */
     @Test
     public void testReset() {
-        ControllerCadastro instance = new ControllerCadastro();
-        instance.reset();
+        ControllerCadastroUsuario instance = new ControllerCadastroUsuario();
+//        instance.reset();
     }
 
     /**
-     * Test of cadastrarUsuario method, of class ControllerCadastro.
+     * Test of cadastrarUsuario method, of class ControllerCadastroUsuario.
      */
     @Test
     public void testCadastrarUsuario() {
@@ -62,7 +62,7 @@ public class ControllerCadastroTest {
     }
 
     /**
-     * Test of cancelarCadastro method, of class ControllerCadastro.
+     * Test of cancelarCadastro method, of class ControllerCadastroUsuario.
      */
     @Test
     public void testCancelarCadastro() {
@@ -72,7 +72,7 @@ public class ControllerCadastroTest {
     }
 
     /**
-     * Test of getUsuario method, of class ControllerCadastro.
+     * Test of getUsuario method, of class ControllerCadastroUsuario.
      */
     @Test
     public void testGetUsuario() {
@@ -82,7 +82,7 @@ public class ControllerCadastroTest {
     }
 
     /**
-     * Test of setUsuario method, of class ControllerCadastro.
+     * Test of setUsuario method, of class ControllerCadastroUsuario.
      */
     @Test
     public void testSetUsuario() {

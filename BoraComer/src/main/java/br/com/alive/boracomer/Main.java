@@ -46,12 +46,12 @@ public class Main {
 //        } catch (Exception ex) {
 //            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-//        Usuario usuario = new Usuario();
-//        usuario.setEmail("adm@adm.com");
-//        usuario.setIdade(18);
-//        usuario.setNome("admin");
-//        usuario.setPass("admin");
-//        UsuarioDAO.getInstance().salvar(usuario);
+        Usuario usuario = new Usuario();
+        usuario.setEmail("adm@adm.com");
+        usuario.setIdade(18);
+        usuario.setNome("admin");
+        usuario.setPass("admin");
+        UsuarioDAO.getInstance().salvar(usuario);
 
     }
 

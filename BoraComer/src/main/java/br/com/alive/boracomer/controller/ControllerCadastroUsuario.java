@@ -7,40 +7,37 @@ package br.com.alive.boracomer.controller;
 
 import br.com.alive.boracomer.dao.UsuarioDAO;
 import br.com.alive.boracomer.entity.Usuario;
-import static com.sun.javafx.logging.PulseLogger.addMessage;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 @RequestScoped
-public class ControllerCadastro implements Serializable {
+public class ControllerCadastroUsuario implements Serializable {
 
     private Usuario usuario;
+
     private String nome;
     private String pass;
     private String idade;
     private String email;
 
     @PostConstruct
-    public void reset() {
+    public void init() {
         this.usuario = new Usuario();
     }
 
     public String cadastrarUsuario() {
-        addMessage("entrou no metodo");
-        try {
-            usuario.setNome(nome);
-            usuario.setPass(pass);
-            usuario.setIdade(Integer.parseInt(idade));
-            usuario.setEmail(email);
-            UsuarioDAO.getInstance().salvar(usuario);
 
-            return "index?faces-redirect=true";
-        } catch (Exception e) {
-        }
-        return null;
+//        usuario.setId_usuario(Long.MIN_VALUE);
+        usuario.setNome(nome);
+        usuario.setPass(pass);
+        usuario.setIdade(Integer.parseInt(idade));
+        usuario.setEmail(email);
+        UsuarioDAO.getInstance().salvar(usuario);
+
+        return "index?faces-redirect=true";
     }
 
     public String cancelarCadastro() {

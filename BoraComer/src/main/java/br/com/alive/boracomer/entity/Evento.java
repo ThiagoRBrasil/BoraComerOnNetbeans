@@ -27,7 +27,7 @@ public class Evento implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @OneToOne(mappedBy = "evento")
+    @ManyToOne(name = )
     private Usuario usuario;
 
     @ManyToOne
