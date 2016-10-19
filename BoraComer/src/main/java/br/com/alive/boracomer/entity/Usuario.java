@@ -31,8 +31,8 @@ public class Usuario implements Serializable {
     @Column(name = "password", nullable = false)
     private String pass;
 
-    @OneToOne(optional = true, cascade = CascadeType.ALL)
-    private Evento evento;
+    @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
+    private List<Evento> evento;
 
     @OneToMany(mappedBy = "usuario")
     private List<Amigo> amigos;
