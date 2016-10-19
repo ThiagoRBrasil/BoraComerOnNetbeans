@@ -31,8 +31,8 @@ public class ControllerLogin implements Serializable {
     }
 
     public String loginUsuario() {
-        System.out.println("metodo invocadooooooooooooooooooo");
-        usuarios = UsuarioDAO.getInstance().findAll();
+//        System.out.println("metodo invocadooooooooooooooooooo");
+        usuarios = (List<Usuario>) UsuarioDAO.getInstance();
         if (usuarios != null) {
             for (int i = 0; i < usuarios.size(); i++) {
                 if (this.user.equals(usuarios.get(i).getEmail())

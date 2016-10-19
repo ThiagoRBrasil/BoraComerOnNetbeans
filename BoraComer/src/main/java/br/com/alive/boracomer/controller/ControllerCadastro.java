@@ -7,6 +7,7 @@ package br.com.alive.boracomer.controller;
 
 import br.com.alive.boracomer.dao.UsuarioDAO;
 import br.com.alive.boracomer.entity.Usuario;
+import static com.sun.javafx.logging.PulseLogger.addMessage;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -28,12 +29,13 @@ public class ControllerCadastro implements Serializable {
     }
 
     public String cadastrarUsuario() {
+        addMessage("entrou no metodo");
         try {
             usuario.setNome(nome);
             usuario.setPass(pass);
             usuario.setIdade(Integer.parseInt(idade));
             usuario.setEmail(email);
-            UsuarioDAO.getInstance().atualizar(usuario);
+            UsuarioDAO.getInstance().salvar(usuario);
 
             return "index?faces-redirect=true";
         } catch (Exception e) {
