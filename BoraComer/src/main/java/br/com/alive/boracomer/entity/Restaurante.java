@@ -1,9 +1,19 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
+
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.*;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "restaurante")
@@ -13,7 +23,7 @@ public class Restaurante implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idRestaurante;
+    private Long id_restaurante;
     
     @OneToMany(mappedBy = "restaurante")
     private List<Evento> eventos;
@@ -32,12 +42,20 @@ public class Restaurante implements Serializable {
     //GETTERS AND SETTERS\\
     //
 
-    public Long getIdRestaurante() {
-        return idRestaurante;
+    public Long getId_restaurante() {
+        return id_restaurante;
     }
 
-    public void setIdRestaurante(Long idRestaurante) {
-        this.idRestaurante = idRestaurante;
+    public void setId_restaurante(Long id_restaurante) {
+        this.id_restaurante = id_restaurante;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
     }
 
     public String getNome() {
@@ -64,18 +82,10 @@ public class Restaurante implements Serializable {
         this.tipo = tipo;
     }
 
-    public List<Evento> getEventos() {
-        return eventos;
-    }
-
-    public void setEventos(List<Evento> eventos) {
-        this.eventos = eventos;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.idRestaurante);
+        hash = 73 * hash + Objects.hashCode(this.id_restaurante);
         return hash;
     }
 
@@ -91,7 +101,7 @@ public class Restaurante implements Serializable {
             return false;
         }
         final Restaurante other = (Restaurante) obj;
-        if (!Objects.equals(this.idRestaurante, other.idRestaurante)) {
+        if (!Objects.equals(this.id_restaurante, other.id_restaurante)) {
             return false;
         }
         return true;

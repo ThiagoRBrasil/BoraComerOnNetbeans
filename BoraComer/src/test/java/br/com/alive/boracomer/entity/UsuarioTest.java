@@ -5,7 +5,6 @@
  */
 package br.com.alive.boracomer.entity;
 
-import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -49,7 +48,7 @@ public class UsuarioTest {
     public void testGetIdUsuario() {
         System.out.println("getIdUsuario");
         Long expResult = null;
-        Long result = instance.getIdUsuario();
+        Long result = instance.getId_usuario();
         assertEquals(expResult, result);
     }
 
@@ -59,9 +58,9 @@ public class UsuarioTest {
     @Test
     public void testSetIdUsuario() {
         System.out.println("setIdUsuario");
-        Long dUsuario = null;
-        instance.setIdUsuario(dUsuario);
-        assertEquals(dUsuario, instance.getIdUsuario());
+        Long id_usuario = null;
+        instance.setId_usuario(id_usuario);
+        assertEquals(id_usuario, instance.getId_usuario());
     }
 
     /**

@@ -19,7 +19,7 @@ public class UsuarioDAO extends JPAUtil {
     private UsuarioDAO() {
         entityManager = super.getEntityManager();
     }
-
+    
     public void salvar(Usuario usuario) {
         try {
             entityManager.getTransaction().begin();
@@ -70,7 +70,7 @@ public class UsuarioDAO extends JPAUtil {
 
     @SuppressWarnings("unchecked")
     public List<Usuario> findAll() {
-        return entityManager.createQuery("FROM " + Usuario.class.getName()).getResultList();
+        return entityManager.createQuery("select u from Usuario u", Usuario.class).getResultList();
     }
 
 }

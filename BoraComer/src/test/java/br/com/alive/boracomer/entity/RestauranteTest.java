@@ -48,7 +48,7 @@ public class RestauranteTest {
     public void testGetIdRestaurante() {
         System.out.println("getIdRestaurante");
         Long expResult = null;
-        Long result = instance.getIdRestaurante();
+        Long result = instance.getId_restaurante();
         assertEquals(expResult, result);
     }
 
@@ -58,9 +58,9 @@ public class RestauranteTest {
     @Test
     public void testSetIdRestaurante() {
         System.out.println("setIdRestaurante");
-        Long idRestaurante = null;
-        instance.setIdRestaurante(idRestaurante);
-        assertEquals(idRestaurante, instance.getIdRestaurante());
+        Long id_restaurante = null;
+        instance.setId_restaurante(id_restaurante);
+        assertEquals(id_restaurante, instance.getId_restaurante());
     }
 
     /**

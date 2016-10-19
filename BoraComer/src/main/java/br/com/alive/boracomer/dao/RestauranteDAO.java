@@ -23,7 +23,7 @@ public class RestauranteDAO extends JPAUtil {
     public Restaurante salvar(Restaurante restaurante) throws Exception {
         try {
             entityManager.getTransaction().begin();
-            if (restaurante.getIdRestaurante() == null) {
+            if (restaurante.getId_restaurante() == null) {
                 entityManager.persist(restaurante);
             } else {
                 restaurante = entityManager.merge(restaurante);

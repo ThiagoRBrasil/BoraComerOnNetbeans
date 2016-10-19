@@ -1,8 +1,16 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
+
 import java.util.Objects;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "endereco")
@@ -12,7 +20,7 @@ public class Endereco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEndereco;
+    private Long id_endereco;
 
     @Column(name = "rua", nullable = false)
     private String rua;
@@ -34,12 +42,13 @@ public class Endereco implements Serializable {
     //
     //GETTERS AND SETTERS\\
     //
-    public Long getIdEndereco() {
-        return idEndereco;
+
+    public Long getId_endereco() {
+        return id_endereco;
     }
 
-    public void setIdEndereco(Long idEndereco) {
-        this.idEndereco = idEndereco;
+    public void setId_endereco(Long id_endereco) {
+        this.id_endereco = id_endereco;
     }
 
     public String getRua() {
@@ -92,8 +101,8 @@ public class Endereco implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.idEndereco);
+        int hash = 3;
+        hash = 89 * hash + Objects.hashCode(this.id_endereco);
         return hash;
     }
 
@@ -109,7 +118,7 @@ public class Endereco implements Serializable {
             return false;
         }
         final Endereco other = (Endereco) obj;
-        if (!Objects.equals(this.idEndereco, other.idEndereco)) {
+        if (!Objects.equals(this.id_endereco, other.id_endereco)) {
             return false;
         }
         return true;

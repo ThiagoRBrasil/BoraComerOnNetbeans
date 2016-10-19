@@ -5,17 +5,22 @@
  */
 package br.com.alive.boracomer.controller;
 
-import java.io.Serializable;
+import br.com.alive.boracomer.dao.UsuarioDAO;
 import br.com.alive.boracomer.entity.Usuario;
+import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import javax.faces.bean.ManagedBean;
 
-@Named
+@ManagedBean
 @RequestScoped
-public class ControllerCadastro {
+public class ControllerCadastro implements Serializable {
 
     private Usuario usuario;
+    private String nome;
+    private String pass;
+    private String idade;
+    private String email;
 
     @PostConstruct
     public void reset() {
@@ -23,7 +28,17 @@ public class ControllerCadastro {
     }
 
     public String cadastrarUsuario() {
-        return "index?faces-redirect=true";
+        try {
+            usuario.setNome(nome);
+            usuario.setPass(pass);
+            usuario.setIdade(Integer.parseInt(idade));
+            usuario.setEmail(email);
+            UsuarioDAO.getInstance().atualizar(usuario);
+
+            return "index?faces-redirect=true";
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public String cancelarCadastro() {
@@ -36,6 +51,38 @@ public class ControllerCadastro {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getIdade() {
+        return idade;
+    }
+
+    public void setIdade(String idade) {
+        this.idade = idade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

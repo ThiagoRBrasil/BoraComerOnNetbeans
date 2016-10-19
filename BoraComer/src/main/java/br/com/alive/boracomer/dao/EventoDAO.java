@@ -26,7 +26,7 @@ public class EventoDAO extends JPAUtil {
         try {
             getEntityManager();
             entityManager.getTransaction().begin();
-            if (evento.getIdEvento() == null) {
+            if (evento.getId_evento()== null) {
                 entityManager.persist(evento);
             } else {
                 evento = entityManager.merge(evento);

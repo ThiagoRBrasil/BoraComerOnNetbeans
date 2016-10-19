@@ -5,13 +5,8 @@
  */
 package br.com.alive.boracomer;
 
-import br.com.alive.boracomer.dao.EnderecoDAO;
-import br.com.alive.boracomer.dao.EventoDAO;
-import br.com.alive.boracomer.entity.Endereco;
-import br.com.alive.boracomer.entity.Evento;
-import br.com.alive.boracomer.entity.Restaurante;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import br.com.alive.boracomer.dao.UsuarioDAO;
+import br.com.alive.boracomer.entity.Usuario;
 import javax.persistence.Persistence;
 
 /**
@@ -20,9 +15,12 @@ import javax.persistence.Persistence;
  */
 public class Main {
 
+    private String user;
+    private String pass;
+
     public static void main(String[] args) {
 
-        Persistence.createEntityManagerFactory("BoraComerPU");
+//        Persistence.createEntityManagerFactory("BoraComerPU");
 //        Endereco endereco = new Endereco();
 //        endereco.setBairro("bairro");
 //        endereco.setCidade("cidade");
@@ -31,7 +29,6 @@ public class Main {
 //        endereco.setRua("rua");
 //        
 //        EnderecoDAO.getInstance().salvar(endereco);
-
 //        Restaurante restaurante = new Restaurante();
 //        restaurante.setEndereco(endereco);
 //        restaurante.setNome("nome");
@@ -49,7 +46,13 @@ public class Main {
 //        } catch (Exception ex) {
 //            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-       
+//        Usuario usuario = new Usuario();
+//        usuario.setEmail("adm@adm.com");
+//        usuario.setIdade(18);
+//        usuario.setNome("admin");
+//        usuario.setPass("admin");
+//        UsuarioDAO.getInstance().salvar(usuario);
+
     }
 
 }

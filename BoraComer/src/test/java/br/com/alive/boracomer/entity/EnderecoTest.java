@@ -47,9 +47,8 @@ public class EnderecoTest {
     @Test
     public void testGetIdEndereco() {
         System.out.println("getIdEndereco");
-        Endereco instance = new Endereco();
         Long expResult = null;
-        Long result = instance.getIdEndereco();
+        Long result = instance.getId_endereco();
         assertEquals(expResult, result);
     }
 
@@ -59,9 +58,8 @@ public class EnderecoTest {
     @Test
     public void testSetIdEndereco() {
         System.out.println("setIdEndereco");
-        Long idEndereco = null;
-        instance.setIdEndereco(idEndereco);
-        assertEquals(idEndereco,instance.getIdEndereco() );
+        Long id_endereco = null;
+        instance.setId_endereco(id_endereco);
     }
 
     /**

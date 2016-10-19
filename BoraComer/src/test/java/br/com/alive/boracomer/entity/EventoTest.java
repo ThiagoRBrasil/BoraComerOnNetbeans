@@ -48,7 +48,7 @@ public class EventoTest {
     public void testGetIdEvento() {
         System.out.println("getIdEvento");
         Long expResult = null;
-        Long result = instance.getIdEvento();
+        Long result = instance.getId_evento();
         assertEquals(expResult, result);
     }
 
@@ -58,9 +58,9 @@ public class EventoTest {
     @org.junit.Test
     public void testSetIdEvento() {
         System.out.println("setIdEvento");
-        Long idEvento = null;
-        instance.setIdEvento(idEvento);
-        assertEquals(idEvento, instance.getIdEvento());
+        Long id_evento = null;
+        instance.setId_evento(id_evento);
+        assertEquals(id_evento, instance.getId_evento());
     }
 
     /**

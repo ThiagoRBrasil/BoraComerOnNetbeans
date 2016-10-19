@@ -1,10 +1,18 @@
 package br.com.alive.boracomer.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Objects;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "evento")
@@ -14,7 +22,7 @@ public class Evento implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEvento;
+    private Long id_evento;
 
     @Column(name = "nome", nullable = false)
     private String nome;
@@ -32,12 +40,12 @@ public class Evento implements Serializable {
     @Column(name = "descricao", nullable = true)
     private String descricao;
 
-    public Long getIdEvento() {
-        return idEvento;
+    public Long getId_evento() {
+        return id_evento;
     }
 
-    public void setIdEvento(Long idEvento) {
-        this.idEvento = idEvento;
+    public void setId_evento(Long id_evento) {
+        this.id_evento = id_evento;
     }
 
     public String getNome() {
@@ -83,7 +91,7 @@ public class Evento implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.idEvento);
+        hash = 89 * hash + Objects.hashCode(this.id_evento);
         return hash;
     }
 
@@ -99,7 +107,7 @@ public class Evento implements Serializable {
             return false;
         }
         final Evento other = (Evento) obj;
-        if (!Objects.equals(this.idEvento, other.idEvento)) {
+        if (!Objects.equals(this.id_evento, other.id_evento)) {
             return false;
         }
         return true;
