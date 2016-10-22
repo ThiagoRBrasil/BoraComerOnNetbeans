@@ -20,12 +20,15 @@
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
                     <h:form>
-                        <p:commandButton value="Sair" id="btnLoginSair" action="#{controllerHome.logout}" styleClass="ui-priority-primary" />
+                        <h:panelGrid columns="3" cellpadding="5">
+                            <p:outputLabel value="Convidar: " for="inputConvidarAmigo"/>
+                            <p:inputText id="inputConvidarAmigo" />
+                            <p:commandButton value="Convidar" id="btnConvidarAmigo" action="#{controllerHome.convidarAmigo()}" styleClass="ui-priority-primary" />
+                            
+                            <p:outputLabel value="Id do Usuário "/>
+                            <p:commandButton value="Sair" id="btnLoginSair" action="#{controllerHome.logout}" styleClass="ui-priority-primary" />
+                        </h:panelGrid>
                     </h:form>
-                </p:layoutUnit>
-
-                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="200">
@@ -34,12 +37,46 @@
                     </h:form>
                 </p:layoutUnit>
 
-                <p:layoutUnit position="east" size="280" header="Amigos" resizable="true" collapsible="true" effect="drop">
-                    <h:outputText value="Lista de Amigos" />
-                </p:layoutUnit>
 
+                <!-- sobre a lista de amigos -->
+                <p:layoutUnit position="east" size="280" resizable="true" collapsible="true" effect="drop">
+                    <p:dataList value="#{controllerHome.amigos}" var="ami" type="ordered">
+                        <f:facet name="header">
+                            Amigos
+                        </f:facet>
+                        <!-- nesse local deve ter chamadas, vide documentação -->
+                        <!-- DataList Basic: http://www.primefaces.org/showcase/ui/data/dataList.xhtml-->
+                    </p:dataList>
+                </p:layoutUnit>
+                
+                <!-- DataScroller http://www.primefaces.org/showcase/ui/data/datascroller/basic.xhtml -->
                 <p:layoutUnit position="center">
-                    Lista de Eventos
+                    <h:form> 
+                        <p:dataScroller value="#{controllerHome.eventos}" var="eve" chunkSize="3">
+                            <f:facet name="header">
+                                Role para baixo e veja os eventos
+                            </f:facet>
+
+                            <p:outputPanel>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <h:outputText value="Nome do Evento: " />
+                                    <h:outputText value="" style="font-weight: bold"/>
+
+                                    <h:outputText value="Local do Evento:" />
+                                    <h:outputText value="" style="font-weight: bold"/>
+
+                                    <h:outputText value="Data: " />
+                                    <h:outputText value="" style="font-weight: bold"/>
+
+                                    <h:outputText value="Horário: " />
+                                    <h:outputText value="" style="font-weight: bold"/>
+
+                                    <h:outputText value="Descrição: " />
+                                    <h:outputText value="" style="font-weight: bold"/>
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </p:dataScroller>
+                    </h:form>
                 </p:layoutUnit>
 
             </p:layout>

@@ -4,7 +4,6 @@ import br.com.alive.boracomer.dao.EventoDAO;
 import br.com.alive.boracomer.dao.UsuarioDAO;
 import br.com.alive.boracomer.entity.Evento;
 import br.com.alive.boracomer.entity.Restaurante;
-import br.com.alive.boracomer.entity.Usuario;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -19,7 +18,7 @@ public class ControllerEvento extends Controller implements Serializable {
     private String descricao;
     private String date;
     private String hora;
-
+    
     public String cadastrar() {
         try {
             evento.setNome(nome);
@@ -32,13 +31,17 @@ public class ControllerEvento extends Controller implements Serializable {
 
             EventoDAO.getInstance().salvar(evento);
             UsuarioDAO.getInstance().atualizar(usuario);
-
+            
             return "home?faces-redirect=true";
         } catch (Exception e) {
         }
         return null;
     }
-
+    
+    public String cancelarNovoEvento(){
+        return "home?faces-redirect=true";
+    }
+    
     public Evento getEvento() {
         return evento;
     }
@@ -90,5 +93,7 @@ public class ControllerEvento extends Controller implements Serializable {
     public void marcarAmigos() {
 
     }
+
+    
 
 }
