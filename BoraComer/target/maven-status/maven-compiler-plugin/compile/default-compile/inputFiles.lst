@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Usuario.java
 C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Amigo.java
 C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\RestauranteDAO.java
@@ -15,3 +16,22 @@ C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com
 C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerEvento.java
 C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\EventoDAO.java
 C:\Users\trbra\Dropbox\NetBeansProjects\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Restaurante.java
+=======
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\Controller.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerCadastroRestaurante.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\Main.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\RestauranteDAO.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Amigo.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerCadastroUsuario.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Restaurante.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\EventoDAO.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerHome.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Evento.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\EnderecoDAO.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Usuario.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\UsuarioDAO.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\dao\JPAUtil.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerLogin.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\entity\Endereco.java
+C:\dev\BoraComer\BoraComer\src\main\java\br\com\alive\boracomer\controller\ControllerEvento.java
+>>>>>>> 5fba1e6f31b0ea7cdbd01a68a34b6e0e53e64f25

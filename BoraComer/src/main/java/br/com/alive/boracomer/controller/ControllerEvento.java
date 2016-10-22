@@ -17,7 +17,7 @@ public class ControllerEvento extends Controller implements Serializable {
     private String descricao;
     private String date;
     private String hora;
-
+    
     public String cadastrar() {
         try {
         evento.setNome(nome);
@@ -28,14 +28,25 @@ public class ControllerEvento extends Controller implements Serializable {
 
         super.usuario.addEvento(evento);
 
+<<<<<<< HEAD
         UsuarioDAO.getInstance().atualizar(usuario);
 
         return "home?faces-redirect=true";
+=======
+            EventoDAO.getInstance().salvar(evento);
+            UsuarioDAO.getInstance().atualizar(usuario);
+            
+            return "home?faces-redirect=true";
+>>>>>>> 5fba1e6f31b0ea7cdbd01a68a34b6e0e53e64f25
         } catch (Exception e) {
     }
         return null;
     }
-
+    
+    public String cancelarNovoEvento(){
+        return "home?faces-redirect=true";
+    }
+    
     public Evento getEvento() {
         return evento;
     }
@@ -87,5 +98,7 @@ public class ControllerEvento extends Controller implements Serializable {
     public void marcarAmigos() {
 
     }
+
+    
 
 }
