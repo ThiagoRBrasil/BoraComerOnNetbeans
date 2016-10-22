@@ -1,10 +1,8 @@
 package br.com.alive.boracomer.controller;
 
-import br.com.alive.boracomer.dao.EventoDAO;
 import br.com.alive.boracomer.dao.UsuarioDAO;
 import br.com.alive.boracomer.entity.Evento;
 import br.com.alive.boracomer.entity.Restaurante;
-import br.com.alive.boracomer.entity.Usuario;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -22,20 +20,19 @@ public class ControllerEvento extends Controller implements Serializable {
 
     public String cadastrar() {
         try {
-            evento.setNome(nome);
-            evento.setRestaurante(local);
-            evento.setDescricao(descricao);
-            evento.setDate(date);
-            evento.setHora(hora);
+        evento.setNome(nome);
+//        evento.setRestaurante(local);
+        evento.setDescricao(descricao);
+        evento.setDate(date);
+        evento.setHora(hora);
 
-            super.usuario.addEvento(evento);
+        super.usuario.addEvento(evento);
 
-            EventoDAO.getInstance().salvar(evento);
-            UsuarioDAO.getInstance().atualizar(usuario);
+        UsuarioDAO.getInstance().atualizar(usuario);
 
-            return "home?faces-redirect=true";
+        return "home?faces-redirect=true";
         } catch (Exception e) {
-        }
+    }
         return null;
     }
 

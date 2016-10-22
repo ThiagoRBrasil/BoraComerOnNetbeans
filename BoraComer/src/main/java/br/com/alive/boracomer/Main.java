@@ -52,6 +52,8 @@ public class Main {
         usuario.setNome("admin");
         usuario.setPass("admin");
         UsuarioDAO.getInstance().salvar(usuario);
+//UsuarioDAO.getInstance().getById(Long.valueOf("1"));
+//        UsuarioDAO.getInstance().getAllDepartments();
 
     }
 

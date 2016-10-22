@@ -70,7 +70,14 @@ public class UsuarioDAO extends JPAUtil {
 
     @SuppressWarnings("unchecked")
     public List<Usuario> findAll() {
-        return entityManager.createQuery("select u from Usuario u", Usuario.class).getResultList();
+        return entityManager.createNamedQuery("select c from Usuario c", Usuario.class).getResultList();
     }
+
+    public List<Usuario> getAllDepartments() 
+{
+    List<Usuario> depts = entityManager.createQuery("Select a From Usuario a",
+                                                        Usuario.class).getResultList();
+    return depts;
+}
 
 }

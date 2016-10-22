@@ -3,9 +3,6 @@
   <!--<persistence-unit name="BoraComerPU" transaction-type="JTA">-->
     <persistence-unit name="BoraComerPU" transaction-type="RESOURCE_LOCAL">
     <jta-data-source>datasources</jta-data-source>
-    <!--<jta-data-source>java:jboss/datasources/boracomer</jta-data-source>-->
-    <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
-    <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
     <class>br.com.alive.boracomer.entity.Endereco</class>
     <class>br.com.alive.boracomer.entity.Evento</class>
     <class>br.com.alive.boracomer.entity.Restaurante</class>

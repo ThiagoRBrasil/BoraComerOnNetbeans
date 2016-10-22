@@ -1,17 +1,14 @@
 package br.com.alive.boracomer.controller;
 
-import br.com.alive.boracomer.entity.Usuario;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class ControllerLogin implements Serializable {
 
     private String user;
@@ -40,7 +37,7 @@ public class ControllerLogin implements Serializable {
     }
 
     public void addMessage(String summary) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, summary, null);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
 
